@@ -1,4 +1,5 @@
 import 'package:chat_application/screens/auth/auth_index.dart';
+import 'package:chat_application/screens/base_screen/base_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +20,7 @@ class AuthScreen extends StatelessWidget {
         } else if (auth.loggedUser == null && auth.loading == false) {
           return const AuthIndex();
         } else {
-          return const HomeScreen();
+          return const BaseScreen();
         }
       },
     );

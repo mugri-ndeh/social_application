@@ -20,6 +20,13 @@ dependencies:
   flutter_sound: ^9.2.13
   google_fonts: ^3.0.1
   firebase_auth: ^3.11.1
+  cached_network_image: ^3.2.2
+  bottom_navy_bar: ^6.0.0
+  file_picker: ^4.6.0
+  image_picker: ^0.8.5+3
+  firebase_storage: ^10.3.10
+  firebase_database: ^9.1.6
+
 
 dev_dependencies:
   flutter_test:

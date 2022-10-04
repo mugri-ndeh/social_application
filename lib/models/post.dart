@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:chat_application/models/comments.dart';
 import 'package:chat_application/models/likes.dart';
+import 'package:chat_application/models/user.dart';
 
 class Post {
   String? postId;
@@ -9,12 +10,16 @@ class Post {
   String? imagePath;
   List<Comment> comments;
   List<Like> likes;
+  UserModel poster;
+  DateTime date;
   Post({
     this.postId,
     this.caption,
     this.imagePath,
     required this.comments,
     required this.likes,
+    required this.poster,
+    required this.date,
   });
 
   Map<String, dynamic> toMap() {
@@ -31,6 +36,8 @@ class Post {
     }
     result.addAll({'comments': comments.map((x) => x.toMap()).toList()});
     result.addAll({'likes': likes.map((x) => x.toMap()).toList()});
+    result.addAll({'poster': poster.toMap()});
+    result.addAll({'date': date.millisecondsSinceEpoch});
 
     return result;
   }
@@ -43,6 +50,8 @@ class Post {
       comments:
           List<Comment>.from(map['comments']?.map((x) => Comment.fromMap(x))),
       likes: List<Like>.from(map['likes']?.map((x) => Like.fromMap(x))),
+      poster: UserModel.fromMap(map['poster']),
+      date: DateTime.fromMillisecondsSinceEpoch(map['date']),
     );
   }
 
